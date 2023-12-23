@@ -4,14 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <script src="main.js"></script>
   <title>Library</title>
 </head>
 <body>
   <header></header>
   <nav></nav>
   <main>
-    <table>
+    <table id="books-table">
       <tr class="headers-table">
         <th>Title</th>
         <th>Author</th>
@@ -19,10 +18,10 @@
         <th>Read</th>
       </tr>
       <tr>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
       </tr>
     </table>
     <form action="main.js" method="POST">
@@ -31,12 +30,13 @@
       <label for="author">Author</label>
       <input type="text" id="author" name="author">
       <label for="pages">Pages</label>
-      <input type="text" id="pages" name="pages">
+      <input type="number" id="pages" name="pages">
       <label for="read">Read</label>
-      <input type="text" id="read" name="read">
-
-      <button type="submit">Submit</button>
+      <input type="number" id="read" name="read">
+      
+      <button type="submit" id="submit-book">Submit</button>
     </form>
   </main>
 </body>
+<script src="main.js"></script>
 </html>
