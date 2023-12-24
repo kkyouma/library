@@ -52,6 +52,21 @@ function addBookToLibrary() {
 
 //client
 
+const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+document.documentElement.className = preferredTheme;
+
+function setTheme() {
+  const root = document.documentElement;
+  const newTheme = root.classList.contains("dark") ? "light" : "dark";
+  root.classList = newTheme;
+  const iconTheme = `${newTheme}_mode`
+
+  document.getElementById('theme_btn').textContent = iconTheme;
+}
+
+document.querySelector('.theme-toggle').addEventListener('click', setTheme);
+
 const tableBody = document.getElementById('body-table')
 
 function displayBook() {
