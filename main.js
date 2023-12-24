@@ -39,7 +39,7 @@ function Book(id, title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.state = state //read - unread
+  // this.state = state //read - unread
 }
 
 let bookId = 2;

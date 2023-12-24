@@ -22,33 +22,31 @@
       <div class="form-container">
         <dialog open>
           <form class="add-form">
-            <div class="label-input" id="li-1">
+            <div class="label-input" id="title">
               <label for="title">Title</label>
-              <input type="text" id="title" name="title" class="input-library">
+              <input type="text" id="title-input" name="title" class="input-library">
             </div>
-            <div class="label-input" id="li-2">
+            <div class="label-input" id="author">
               <label for="author">Author</label>
-              <input type="text" id="author" name="author" class="input-library">
+              <input type="text" id="author-input" name="author" class="input-library">
             </div>
-            
-            <div class="pages">
-              <div class="label-input" id="li-3">
-                <label for="pages-input">Pages</label>
-                <input type="number" id="pages" name="pages" class="input-library">
-              </div>
-              <div class="label-input" id="li-4">
-                <label for="read">Read</label>
-                <input type="number" id="read" name="read" class="input-library">
-              </div>
-              <button type="submit" id="add-book" class="submit-btn">Add book</button>
+            <div class="label-input" id="pages">
+              <label for="pages-input">Pages</label>
+              <input type="number" id="pages-input" name="pages" class="input-library">
             </div>
+            <div class="label-input" id="read">
+              <label for="read">Read</label>
+              <input type="number" id="read-input" name="read" class="input-library">
+            </div>
+            <button type="submit" id="add-book" class="submit-btn">Add book</button>
           </form>
+          <button id="close-dialog" onclick="this.parentElement.close()">Close</button>
+        </dialog>
           <form class="delete-form">
             <label for="delete-id">Delete</label>
             <input type="number" id="delete-id" name="delete-id" class="input-library">
             <button type="submit" id="delete-book" class="submit-btn">Delete book</button>
           </form>
-        </dialog>
       </div>
       <table id="books-table">
         <thead class="headers-table">
