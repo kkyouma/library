@@ -39,6 +39,7 @@ function Book(id, title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.state = state //read - unread
 }
 
 let bookId = 2;
@@ -58,6 +59,16 @@ function addBookToLibrary() {
   cleanInputs()
 }
 
+function deleteBook(id) {
+  const index = myLibrary.findIndex((book) => book.id === id)
+  if (index !== -1) {
+    myLibrary.splice(index, 1)
+    displayBook()
+    cleanInputs()
+  } else if (index === -1) {
+    console.log("Ingrese un id valido")
+  }
+}
 
 //client
 
@@ -112,16 +123,6 @@ function displayBook() {
 }
 displayBook()
 
-function deleteBook(id) {
-  const index = myLibrary.findIndex((book) => book.id === id)
-  if (index !== -1) {
-    myLibrary.splice(index, 1)
-    displayBook()
-    cleanInputs()
-  } else if (index === -1) {
-    console.log("Ingrese un id valido")
-  }
-}
 
 function cleanInputs() {
   const allInputs = document.getElementsByClassName('input-library')
