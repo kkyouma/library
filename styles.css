@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url(/fonts/Roboto-Regular.ttf) format('truetype');
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
   --bg-color: #030712;
@@ -40,10 +53,12 @@
 }
 
 body {
-  background: var(--bg-color);
+  background-color: var(--bg-color);
   color: var(--text-color);
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
 div.container {
@@ -60,8 +75,32 @@ main {
   background-color: var(--bg-color);
   grid-area: main;
   display: grid;
-  grid-template-columns: 5fr 300px;
+  grid-template-columns: 5fr minmax(200px, 1fr);
   grid-template-rows: 200px  5fr;
+}
+
+div.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="text"], input[type="number"], 
+input[type="date"], input[type="email"], 
+input[type="password"], textarea{
+  padding: 12px;
+  border: 1px solid var(--color1);
+  background-color: var(--bg-color3);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 6px;
+  font-size: 1em;
+  color: var(--text-color);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border: 1px solid var(--color7);
 }
 
 nav {
@@ -108,4 +147,6 @@ table tbody tr:hover {
 
 tr:nth-child(even) {
   background-color: var(--bg-color1);
+  border: 1px solid var(--color1);
 }
+
