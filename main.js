@@ -1,17 +1,3 @@
-const myLibrary = [
-  {
-    title: "titulo ejemplo",
-    author: "autor ejemplo",
-    pages: "101",
-    read: "90"
-  },{
-    title: "titulo ejemplo 2",
-    author: "autor ejemplo 2",
-    pages: "102",
-    read: "91"
-  }
-];
-
 document.querySelector('form').addEventListener('submit', function(event) {
   event.preventDefault();
   
@@ -19,31 +5,46 @@ document.querySelector('form').addEventListener('submit', function(event) {
   
   addBookToLibrary();
   
-  //data
-  
 });
-  
-  function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+
+
+//data
+const myLibrary = [
+  { 
+    id: "0",
+    title: "titulo ejemplo",
+    author: "autor ejemplo",
+    pages: "101",
+    read: "90"
+  },{
+    id: "1",
+    title: "titulo ejemplo 2",
+    author: "autor ejemplo 2",
+    pages: "102",
+    read: "91"
   }
-  
-  // const title = this.elements['title'].value;
-  // const author = this.elements['author'].value;
-  
-  const submit = document.getElementById('submit-book');
-  
+];
+
+function Book(id, title, author, pages, read) {
+  this.id = id
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+}
+
+let bookId = 2;
 
 function addBookToLibrary() {
-  let title = document.getElementsByName('title')[0].value;
-  let author = document.getElementsByName('author')[0].value;
-  let pages = document.getElementsByName('pages')[0].value;
-  let read = document.getElementsByName('read')[0].value;
+  const title = document.getElementsByName('title')[0].value;
+  const author = document.getElementsByName('author')[0].value;
+  const pages = document.getElementsByName('pages')[0].value;
+  const read = document.getElementsByName('read')[0].value;
 
-  let book = new Book(title, author, pages, read)
+  const book = new Book(bookId, title, author, pages, read)
   myLibrary.push(book)
+
+  bookId++;
 
   displayBook()
 }
@@ -61,11 +62,14 @@ function displayBook() {
     const row = document.createElement("tr")
     row.className = 'row-book'
     row.id = `book-${i}`
+
+    const idCell = document.createElement("td")
+    idCell.textContent = book.id
+    row.appendChild(idCell)
     
     const titleCell = document.createElement("td")
     titleCell.textContent = book.title
     row.appendChild(titleCell)
-    console.log(book.title)
     
     const authorCell = document.createElement("td")
     authorCell.textContent = book.author
