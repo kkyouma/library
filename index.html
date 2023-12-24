@@ -16,12 +16,11 @@
         dark_mode
         </span>
       </button>
-    </button>
     </header>
     <nav></nav>
     <main>
       <div class="form-container">
-        <form action="main.js" method="POST">
+        <form>
           <label for="title">Title</label>
           <input type="text" id="title" name="title">
           <label for="author">Author</label>
@@ -30,8 +29,14 @@
           <input type="number" id="pages" name="pages">
           <label for="read">Read</label>
           <input type="number" id="read" name="read">
-        
-          <button type="submit" id="submit-book">Add book</button>
+
+          <button type="submit" id="add-book" class="submit-btn">Add book</button>
+        </form>
+        <form>
+          <label for="delete-id">Delete</label>
+          <input type="number" id="delete-id" name="delete-id">
+
+          <button type="submit" id="delete-book" class="submit-btn">Delete book</button>
         </form>
       </div>
       <table id="books-table">

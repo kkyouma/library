@@ -1,10 +1,19 @@
-document.querySelector('form').addEventListener('submit', function(event) {
+const form = document.querySelector('form')
+const submitDelete = document.getElementById('delete-book')
+const submitAdd = document.getElementById('add-book')
+
+submitAdd.addEventListener('click', function(event) {
   event.preventDefault();
-  
-  console.log("Submit clicked")
-  
+  console.log("Add book clicked");
   addBookToLibrary();
-  
+});
+
+submitDelete.addEventListener('click', function(event) {
+  event.preventDefault();
+  console.log("Delete book clicked");
+  const bookToDelete = Number(document.getElementsByName('delete-id')[0].value)
+  deleteBook(bookToDelete)
+  console.log(bookToDelete)
 });
 
 
@@ -101,6 +110,11 @@ function displayBook() {
     tableBody.appendChild(row)
   });
 }
-
-
 displayBook()
+
+function deleteBook(id) {
+  const index = myLibrary.findIndex((book) => book.id === id)
+  myLibrary.splice(index, 1)
+  displayBook()
+}
+
