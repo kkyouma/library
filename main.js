@@ -13,7 +13,6 @@ submitDelete.addEventListener('click', function(event) {
   console.log("Delete book clicked");
   const bookToDelete = Number(document.getElementsByName('delete-id')[0].value)
   deleteBook(bookToDelete)
-  console.log(bookToDelete)
 });
 
 
@@ -56,6 +55,7 @@ function addBookToLibrary() {
   bookId++;
 
   displayBook()
+  cleanInputs()
 }
 
 
@@ -114,7 +114,20 @@ displayBook()
 
 function deleteBook(id) {
   const index = myLibrary.findIndex((book) => book.id === id)
-  myLibrary.splice(index, 1)
-  displayBook()
+  if (index !== -1) {
+    myLibrary.splice(index, 1)
+    displayBook()
+    cleanInputs()
+  } else if (index === -1) {
+    console.log("Ingrese un id valido")
+  }
+}
+
+function cleanInputs() {
+  const allInputs = document.getElementsByClassName('input-library')
+
+  Array.from(allInputs).forEach ((input) => {
+    input.value = ''
+  })
 }
 
