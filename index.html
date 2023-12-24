@@ -11,13 +11,18 @@
   <nav></nav>
   <main>
     <table id="books-table">
-      <tr class="headers-table">
-        <th>Id</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Pages</th>
-        <th>Read</th>
-      </tr>
+      <thead class="headers-table">
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Pages</th>
+          <th>Read</th>
+        </tr>
+      </thead>
+      <tbody id="body-table">
+
+      </tbody>
     </table>
     <form action="main.js" method="POST">
       <label for="title">Title</label>

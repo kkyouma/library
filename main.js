@@ -52,16 +52,16 @@ function addBookToLibrary() {
 
 //client
 
-const table = document.getElementById("books-table")
+const tableBody = document.getElementById('body-table')
 
 function displayBook() {
 
-  table.innerHTML = "";
+  tableBody.innerHTML = "";
 
-  myLibrary.forEach((book, i) => {
+  myLibrary.forEach((book) => {
     const row = document.createElement("tr")
     row.className = 'row-book'
-    row.id = `book-${i}`
+    row.id = `book-${book.id}`
 
     const idCell = document.createElement("td")
     idCell.textContent = book.id
@@ -83,7 +83,7 @@ function displayBook() {
     readCell.textContent = book.read
     row.appendChild(readCell)
     
-    table.appendChild(row)
+    tableBody.appendChild(row)
   });
 }
 
