@@ -117,11 +117,36 @@ function displayBook() {
     const readCell = document.createElement("td")
     readCell.textContent = book.read
     row.appendChild(readCell)
+
+    createDeleteButton()
+    const deleteRow = createDeleteButton();
+    row.appendChild(deleteRow);
     
     tableBody.appendChild(row)
   });
 }
 displayBook()
+
+function createDeleteButton() {
+  const deleteRow = document.createElement("td")
+  const deleteBtn = document.createElement("button")
+  deleteBtn.textContent = "Delete row"
+
+  deleteBtn.addEventListener("click", () => {
+    const parentRow = this.parentNode.parentNode
+    const parentTable = parentRow.parentNode;
+
+    parentTable.removeChild(parentRow);
+
+    const bookId = parentRow.id.split("-")[1];
+    deleteBook(bookId);
+  })
+
+  deleteRow.appendChild(deleteBtn);
+
+  return deleteRow;
+}
+
 
 
 function cleanInputs() {
