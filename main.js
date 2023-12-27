@@ -21,13 +21,13 @@ submitDelete.addEventListener('click', function(event) {
 //data
 const myLibrary = [
   { 
-    id: "0",
+    id: 0,
     title: "titulo ejemplo",
     author: "autor ejemplo",
     pages: "101",
     read: "90"
   },{
-    id: "1",
+    id: 1,
     title: "titulo ejemplo 2",
     author: "autor ejemplo 2",
     pages: "102",
