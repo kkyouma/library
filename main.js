@@ -120,7 +120,6 @@ function displayBook() {
     readCell.textContent = book.read
     row.appendChild(readCell)
 
-    createDeleteButton(book)
     const deleteRow = createDeleteButton(book);
     row.appendChild(deleteRow);
     
@@ -128,6 +127,7 @@ function displayBook() {
   });
 }
 displayBook()
+
 
 
 function createDeleteButton(book) {
@@ -138,11 +138,28 @@ function createDeleteButton(book) {
   deleteBtn.setAttribute('value', `${book.id}`)
   deleteBtn.classList.add('DeleteBtn')
 
+  deleteBtn.addEventListener('click', () => {
+    const bookToDelete = Number(deleteBtn.getAttribute('value'));
+    console.log(bookToDelete);
+    deleteBook(bookToDelete);
+  });
 
-  deleteRow.appendChild(deleteBtn)
+  deleteRow.appendChild(deleteBtn);
 
   return deleteRow
 }
+
+// const deleteButtons = document.getElementsByClassName('DeleteBtn')
+
+// Array.from(deleteButtons).forEach(button => {
+//   button.addEventListener('click', () => {
+//     const bookToDelete = button.getAttribute('value');
+
+//     console.log(bookToDelete)
+//     deleteBook(bookToDelete)
+//   })
+// })
+
 
 
 function cleanInputs() {
