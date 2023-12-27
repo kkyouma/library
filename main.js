@@ -16,6 +16,8 @@ submitDelete.addEventListener('click', function(event) {
 });
 
 
+
+
 //data
 const myLibrary = [
   { 
@@ -118,8 +120,8 @@ function displayBook() {
     readCell.textContent = book.read
     row.appendChild(readCell)
 
-    createDeleteButton()
-    const deleteRow = createDeleteButton();
+    createDeleteButton(book)
+    const deleteRow = createDeleteButton(book);
     row.appendChild(deleteRow);
     
     tableBody.appendChild(row)
@@ -128,24 +130,18 @@ function displayBook() {
 displayBook()
 
 
-function createDeleteButton() {
+function createDeleteButton(book) {
   const deleteRow = document.createElement("td")
   const deleteBtn = document.createElement("button")
   deleteBtn.textContent = "Delete row"
 
-  deleteBtn.addEventListener("click", () => {
-    const parentRow = this.parentNode.parentNode
-    const parentTable = parentRow.parentNode;
+  deleteBtn.setAttribute('value', `${book.id}`)
+  deleteBtn.classList.add('DeleteBtn')
 
-    parentTable.removeChild(parentRow);
 
-    const bookId = parentRow.id.split("-")[1];
-    deleteBook(bookId);
-  })
+  deleteRow.appendChild(deleteBtn)
 
-  deleteRow.appendChild(deleteBtn);
-
-  return deleteRow;
+  return deleteRow
 }
 
 
