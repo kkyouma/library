@@ -21,7 +21,7 @@
     <main>
       <div class="form-container">
         <button id="toggle-dialog">Submit book</button>
-        <dialog id="form-dialog" open>
+        <dialog id="form-dialog">
           <form class="add-form">
             <div class="label-input" id="title">
               <label for="title">Title</label>
@@ -43,11 +43,14 @@
           </form>
           <button id="close-dialog">Close</button>
         </dialog>
-          <form class="delete-form">
-            <label for="delete-id">Delete</label>
-            <input type="number" id="delete-id" name="delete-id" class="input-library">
-            <button type="submit" id="delete-book" class="submit-btn">Delete book</button>
-          </form>
+          <dialog>
+            <form class="delete-form">
+              <label for="delete-id">Delete</label>
+              <input type="number" id="delete-id" name="delete-id" class="input-library">
+              <button type="submit" id="delete-book" class="submit-btn">Delete book</button>
+            </form>
+            <button id="toggle-deletedialog"></button>
+          </dialog>
       </div>
       <table id="books-table">
         <thead class="headers-table">
