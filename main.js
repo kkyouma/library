@@ -73,7 +73,6 @@ function deleteBook(id) {
 //client
 
 const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-
 document.documentElement.className = preferredTheme;
 
 function setTheme() {
@@ -84,8 +83,9 @@ function setTheme() {
 
   document.getElementById('theme_btn').textContent = iconTheme;
 }
-
 document.querySelector('.theme-toggle').addEventListener('click', setTheme);
+
+
 
 const tableBody = document.getElementById('body-table')
 
@@ -127,6 +127,7 @@ function displayBook() {
 }
 displayBook()
 
+
 function createDeleteButton() {
   const deleteRow = document.createElement("td")
   const deleteBtn = document.createElement("button")
@@ -148,7 +149,6 @@ function createDeleteButton() {
 }
 
 
-
 function cleanInputs() {
   const allInputs = document.getElementsByClassName('input-library')
 
@@ -156,4 +156,17 @@ function cleanInputs() {
     input.value = ''
   })
 }
+
+const toggleDialog = document.getElementById('toggle-dialog');
+const closeDialog = document.getElementById('close-dialog')
+const dialog = document.getElementById('form-dialog')
+
+toggleDialog.addEventListener ('click', () => {
+  dialog.showModal();
+});
+
+closeDialog.addEventListener('click', () => {
+  dialog.close()
+});
+
 

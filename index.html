@@ -20,7 +20,8 @@
     <nav></nav>
     <main>
       <div class="form-container">
-        <dialog open>
+        <button id="toggle-dialog">Submit book</button>
+        <dialog id="form-dialog">
           <form class="add-form">
             <div class="label-input" id="title">
               <label for="title">Title</label>
@@ -40,7 +41,7 @@
             </div>
             <button type="submit" id="add-book" class="submit-btn">Add book</button>
           </form>
-          <button id="close-dialog" onclick="this.parentElement.close()">Close</button>
+          <button id="close-dialog">Close</button>
         </dialog>
           <form class="delete-form">
             <label for="delete-id">Delete</label>

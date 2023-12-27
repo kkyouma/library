@@ -248,4 +248,8 @@ button#add-book {
   grid-area: submit;
 }
 
-button
+button#toggle-dialog {
+  border: var();
+  grid-area: toggle-dialog;
+}
+
